@@ -1,0 +1,73 @@
+/* Place your CSS styles in this file */
+
+h1 {
+    text-align: center;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: normal;
+    color: snow
+}
+
+p1 { 
+    text-indent: 35px;
+    color: red;
+    font-weight: normal;
+    font-style: oblique;
+    
+    
+}
+
+p2 {
+text-indent: 35px;
+color: fuchsia;
+font-weight: normal;
+font-style: oblique;
+
+}
+
+p3 { 
+    text-indent: 35px;
+    color: coral;
+    font-weight: normal;
+    font-weight: oblique;
+}
+
+
+ul {
+
+    display: flex;
+    list-style-type: none;
+    background-color: chartreuse;
+    justify-content: space-around;
+    height: 50px;
+    align-items: center;
+    margin: 0;
+    border-radius: 10px 10px 0 0;
+
+}
+
+li, a {
+
+    color: black;
+    text-decoration: overline;
+
+}
+
+
+li, a:hover {
+
+color: white;
+
+transition: all 0.2s ease-in-out;
+}
+
+img { 
+    size: 500px;
+    
+    
+}
+body{
+
+    background-color: cyan;
+
+    border: 5px solid yellow; border-radius: 15px;
+}
