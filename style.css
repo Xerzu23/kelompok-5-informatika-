@@ -66,13 +66,9 @@ img {
     
 }
 body{
+    
+background-color: cyan;
 
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg,#ff7e5f,#feb47b);
-            overflow: hidden;
-            position: relative;
+border: 5px solid yellow; border-radius: 15px;
+            
 }
