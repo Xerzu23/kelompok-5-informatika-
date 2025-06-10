@@ -1,4 +1,4 @@
-def get_shio(tahun):
+[3:39 PM, 6/10/2025] Parsa: def get_shio(tahun):
     daftar_shio = [
         "Tikus", "Kerbau", "Macan", "Kelinci", "Naga", "Ular",
         "Kuda", "Kambing", "Monyet", "Ayam", "Anjing", "Babi"
@@ -60,3 +60,146 @@ if isinstance(hasil, tuple):
     print(f"Ramalan Baik   : {ramalan}")
 else:
     print(f"\n{hasil}")
+[3:46 PM, 6/10/2025] Parsa: <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramalan Shio</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 60px;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .result {
+      margin-top: 25px;
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 10px;
+      line-height: 1.6;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Ramalan Shio</h1>
+    <input type="number" id="tahun" placeholder="Masukkan tahun (lebih dari 1900)" />
+    <button onclick="tampilkanRamalan()">Cek Ramalan</button>
+    <div class="result" id="hasil"></div>
+  </div>
+
+  <script>
+    const daftarShio = [
+      "Tikus", "Kerbau", "Macan", "Kelinci", "Naga", "Ular",
+      "Kuda", "Kambing", "Monyet", "Ayam", "Anjing", "Babi"
+    ];
+
+    const elemen = [
+      "Kayu", "Kayu", "Api", "Api", "Tanah",
+      "Tanah", "Logam", "Logam", "Air", "Air"
+    ];
+
+    const karakter = {
+      "Tikus": "Cerdas, cepat tanggap, dan penuh ide.",
+      "Kerbau": "Pekerja keras, sabar, dan dapat diandalkan.",
+      "Macan": "Berani, percaya diri, dan suka tantangan.",
+      "Kelinci": "Lembut, ramah, dan diplomatis.",
+      "Naga": "Karismatik, ambisius, dan penuh energi.",
+      "Ular": "Bijaksana, tenang, dan analitis.",
+      "Kuda": "Aktif, mandiri, dan suka kebebasan.",
+      "Kambing": "Kreatif, penuh empati, dan artistik.",
+      "Monyet": "Cerdas, lucu, dan pandai beradaptasi.",
+      "Ayam": "Teliti, jujur, dan penuh semangat.",
+      "Anjing": "Setia, jujur, dan pelindung yang baik.",
+      "Babi": "Baik hati, dermawan, dan mudah percaya."
+    };
+
+    const ramalan = {
+      "Tikus": "Tahun ini penuh peluang baru, manfaatkan kecerdasanmu.",
+      "Kerbau": "Kerja kerasmu akan terbayar, tetap sabar dan tekun.",
+      "Macan": "Waktunya tampil percaya diri dan ambil keputusan berani.",
+      "Kelinci": "Kedamaian dan harmoni akan menyertai langkahmu.",
+      "Naga": "Kesuksesan besar ada di depan mata, jangan ragu untuk bersinar.",
+      "Ular": "Gunakan kebijaksanaanmu untuk menghadapi tantangan.",
+      "Kuda": "Energi positif membawamu ke arah kemajuan.",
+      "Kambing": "Kreativitas dan kehangatanmu menarik keberuntungan.",
+      "Monyet": "Kecerdikanmu akan membuka banyak pintu rejeki.",
+      "Ayam": "Kedisiplinan dan ketelitianmu jadi kunci keberhasilan.",
+      "Anjing": "Kesetiaan dan kebaikan hatimu akan membawa keberkahan.",
+      "Babi": "Keberuntungan finansial dan kebahagiaan keluarga menantimu."
+    };
+
+    function tampilkanRamalan() {
+      const tahun = parseInt(document.getElementById("tahun").value);
+      const hasil = document.getElementById("hasil");
+
+      if (isNaN(tahun) || tahun <= 1900) {
+        hasil.innerHTML = "<span style='color: red;'>Tahun harus lebih dari tahun 1900.</span>";
+        return;
+      }
+
+      const indexShio = (tahun - 1900) % 12;
+      const indexUnsur = (tahun - 1900) % 10;
+      const shio = daftarShio[indexShio];
+      const unsur = elemen[indexUnsur];
+
+      hasil.innerHTML = `
+        <div><span class="label">Tahun:</span> ${tahun}</div>
+        <div><span class="label">Shio:</span> ${shio}</div>
+        <div><span class="label">Unsur (Elemen):</span> ${unsur}</div>
+        <div><span class="label">Karakteristik:</span> ${karakter[shio]}</div>
+        <div><span class="label">Ramalan Baik:</span> ${ramalan[shio]}</div>
+      `;
+    }
+  </script>
+</body>
+</html>
