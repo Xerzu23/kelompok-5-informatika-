@@ -1,27 +1,62 @@
- <!DOCTYPE html>
- <html lang="en">
-   <head>
-       <meta charset="UTF-8" />
-           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-               <title>Document</title>
-                   <link rel="stylesheet" href="style.css" />
-                       <title>bayu</title>
-                         </head>
-                           <body>
-                              
-                                 <ul>
-                                     <li><a href="index.html">Home</a></li>
-                                         <li><a href="About.html">About</a></li>
-                                             <li><a href="Contact.html">Contact</a></li>
-                                                </ul>
+ def get_shio(tahun):
+    daftar_shio = [
+        "Tikus", "Kerbau", "Macan", "Kelinci", "Naga", "Ular",
+        "Kuda", "Kambing", "Monyet", "Ayam", "Anjing", "Babi"
+    ]
 
-                                                    <!---judul---->
-                                                       <h1>SATELIT</h1>
+    ramalan = {
+        "Tikus": "Tahun ini penuh peluang baru, manfaatkan kecerdasanmu.",
+        "Kerbau": "Kerja kerasmu akan terbayar, tetap sabar dan tekun.",
+        "Macan": "Waktunya tampil percaya diri dan ambil keputusan berani.",
+        "Kelinci": "Kedamaian dan harmoni akan menyertai langkahmu.",
+        "Naga": "Kesuksesan besar ada di depan mata, jangan ragu untuk bersinar.",
+        "Ular": "Gunakan kebijaksanaanmu untuk menghadapi tantangan.",
+        "Kuda": "Energi positif membawamu ke arah kemajuan.",
+        "Kambing": "Kreativitas dan kehangatanmu menarik keberuntungan.",
+        "Monyet": "Kecerdikanmu akan membuka banyak pintu rejeki.",
+        "Ayam": "Kedisiplinan dan ketelitianmu jadi kunci keberhasilan.",
+        "Anjing": "Kesetiaan dan kebaikan hatimu akan membawa keberkahan.",
+        "Babi": "Keberuntungan finansial dan kebahagiaan keluarga menantimu."
+    }
 
-                                                           <!---tulisan bergerak--->
-                                                              <marquee>DESIGN BY PARSA</marquee>
-                                                                    
-                                                                        <img src="satelit.jpg">
-                                                                             
-                                                                               </body>
-                                                                               </html>
+    karakter = {
+        "Tikus": "Cerdas, cepat tanggap, dan penuh ide.",
+        "Kerbau": "Pekerja keras, sabar, dan dapat diandalkan.",
+        "Macan": "Berani, percaya diri, dan suka tantangan.",
+        "Kelinci": "Lembut, ramah, dan diplomatis.",
+        "Naga": "Karismatik, ambisius, dan penuh energi.",
+        "Ular": "Bijaksana, tenang, dan analitis.",
+        "Kuda": "Aktif, mandiri, dan suka kebebasan.",
+        "Kambing": "Kreatif, penuh empati, dan artistik.",
+        "Monyet": "Cerdas, lucu, dan pandai beradaptasi.",
+        "Ayam": "Teliti, jujur, dan penuh semangat.",
+        "Anjing": "Setia, jujur, dan pelindung yang baik.",
+        "Babi": "Baik hati, dermawan, dan mudah percaya."
+    }
+
+    elemen = ["Kayu", "Kayu", "Api", "Api", "Tanah", "Tanah", "Logam", "Logam", "Air", "Air"]
+
+    if tahun <= 1900:
+        return "Tahun harus lebih dari tahun 1900."
+
+    index_shio = (tahun - 1900) % 12
+    index_unsur = (tahun - 1900) % 10
+
+    shio = daftar_shio[index_shio]
+    unsur = elemen[index_unsur]
+
+    return shio, unsur, karakter[shio], ramalan[shio]
+
+# Contoh penggunaan
+tahun = int(input("Masukkan tahun (lebih dari 1900): "))
+hasil = get_shio(tahun)
+
+if isinstance(hasil, tuple):
+    shio, unsur, karakteristik, ramalan = hasil
+    print(f"\nTahun {tahun}")
+    print(f"Shio           : {shio}")
+    print(f"Unsur (Elemen) : {unsur}")
+    print(f"Karakteristik  : {karakteristik}")
+    print(f"Ramalan Baik   : {ramalan}")
+else:
+    print(f"\n{hasil}"
